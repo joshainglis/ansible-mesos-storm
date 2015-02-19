@@ -1,4 +1,6 @@
 ### base
+java.library.path: "{{storm_java_library_path}}"
+storm.local.dir: "{{storm_local_dir}}"
 mesos.master.url: "zk://{{zookeeper_hosts}}/mesos"
 
 storm.zookeeper.servers:
@@ -12,7 +14,6 @@ mesos.executor.uri: "{{mesos_executor_uri}}"
 
 storm.messaging.transport: "backtype.storm.messaging.netty.Context"
 
-storm.local.dir: "/opt/storm_local"
 storm.log.dir: "/var/log/storm"
 
 ui.port: {{storm_ui_port}}

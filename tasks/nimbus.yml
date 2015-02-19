@@ -42,5 +42,5 @@
   wait_for: host={{nimbus_host}} port=5050 state=started timeout=30
 
 - name: wait for ui port
-  wait_for: host={{nimbus_host}} port={{storm_ui_port}} state=started timeout=60
+  wait_for: host={{nimbus_host}} port={{storm_ui_port}} state=started timeout=120
 
