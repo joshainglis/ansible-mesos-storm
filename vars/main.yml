@@ -8,3 +8,4 @@ stormui_upstart_conf: /etc/init/storm-ui.conf
 supervisor_systemd_service: /etc/systemd/system/storm-supervisor.service
 supervisor_upstart_conf: /etc/init/storm-supervisor.conf
 storm_user: storm
+mesos_executor_uri: https://github.com/{{github_user}}/storm/releases/download/storm-mesos-{{storm_version}}/storm-mesos-{{storm_version}}.tgz

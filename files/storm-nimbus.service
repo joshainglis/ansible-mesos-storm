@@ -8,7 +8,7 @@ User=storm
 Group=storm
 Restart=on-failure
 WorkingDirectory=/opt/storm/current
-ExecStart=/opt/storm/current/bin/storm nimbus
+ExecStart=/opt/storm/current/bin/storm nimbus storm.mesos.MesosNimbus
 
 [Install]
 WantedBy=multi-user.target

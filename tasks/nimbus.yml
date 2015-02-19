@@ -1,7 +1,7 @@
 ---
 # Configure and start nimbus as well as the UI
 - name: Configure storm.yaml
-  template: dest="{{storm_root_dir}}/apache-storm-{{storm_version}}/conf/storm.yaml" owner={{storm_user}} group={{storm_group}} mode=644 src=storm.yaml.j2
+  template: dest="{{storm_root_dir}}/storm-mesos-{{storm_version}}/conf/storm.yaml" owner={{storm_user}} group={{storm_group}} mode=644 src=storm.yaml.j2
   notify:
     - Restart Nimbus
     - Restart UI
@@ -39,8 +39,8 @@
   service: name=storm-ui state=started enabled=yes
 
 - name: wait for nimbus port
-  wait_for: port={{nimbus_thrift_port}} state=started timeout=30
+  wait_for: host={{nimbus_host}} port=5050 state=started timeout=30
 
 - name: wait for ui port
-  wait_for: port={{storm_ui_port}} state=started timeout=5
+  wait_for: host={{nimbus_host}} port={{storm_ui_port}} state=started timeout=60
 
