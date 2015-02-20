@@ -20,6 +20,10 @@
 - name: Link current version
   file: path={{storm_root_dir}}/current state=link src={{storm_root_dir}}/storm-mesos-{{storm_version}}
 
+- name: Copy framework for download to slaves
+  file: dest={{storm_root_dir}}/current/conf/storm-mesos-{{storm_version}}.tar.gz owner=storm group=storm mode=644 src=/root/storm-mesos-{{storm_version}}.tar.gz
+
+
 - name: Create Storm log and local directories
   file: path={{item}} state=directory owner={{storm_user}} group={{storm_group}} mode=775
   with_items:

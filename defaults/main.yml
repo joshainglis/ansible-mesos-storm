@@ -29,3 +29,8 @@ storm_zookeeper_extra_config:
     storm.zookeeper.retry.times: 60
     storm.zookeeper.root: "/storm"
     storm.zookeeper.session.timeout: 3000
+
+nimbus_fileserver_port: 8889
+topology_mesos_executor_cpu: "0.1"
+topology_mesos_worker_cpu: "0.1"
+

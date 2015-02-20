@@ -10,7 +10,7 @@ storm.zookeeper.servers:
 
 nimbus.host: "{{nimbus_host}}"
 nimbus.thrift.port: {{nimbus_thrift_port}}
-mesos.executor.uri: "{{mesos_executor_uri}}"
+mesos.executor.uri: {{mesos_executor_uri}}
 
 storm.messaging.transport: "backtype.storm.messaging.netty.Context"
 
@@ -20,5 +20,9 @@ ui.port: {{storm_ui_port}}
 
 mesos.framework.role: "*"
 mesos.framework.checkpoint: false
-mesos.framework.name: "Storm 0.9.3"
+mesos.framework.name: "Storm {{storm_version}}"
+
+mesos.local.file.server.port: {{nimbus_fileserver_port}}
+topology.mesos.executor.cpu: {{topology_mesos_executor_cpu}}
+topology.mesos.worker.cpu: {{topology_mesos_worker_cpu}}
 
