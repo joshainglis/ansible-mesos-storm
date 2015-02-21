@@ -11,6 +11,6 @@ respawn limit 25 5
 
 setgid storm
 setuid storm
-env STORM_NIMBUS_HOST="{{nimbus_host}}"
+env MESOS_NIMBUS_HOST="{{nimbus_host}}"
 chdir /opt/storm/current
 exec /opt/storm/current/bin/storm nimbus storm.mesos.MesosNimbus
