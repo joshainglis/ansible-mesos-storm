@@ -6,29 +6,15 @@
     - Restart Nimbus
     - Restart UI
 
-- name: Setup nimbus upstart script
-  template: dest={{nimbus_upstart_conf}} owner=root group=root mode=644 src=storm-nimbus.conf.j2
-  notify:
-    - Restart Nimbus
-  when: ansible_distribution_release == 'trusty'
-
 - name: Setup nimbus systemd script
   copy: dest={{nimbus_systemd_service}} owner=root group=root mode=644 src=storm-nimbus.service
   notify:
     - Restart Nimbus
-  when: ansible_distribution_release != 'trusty'
-
-- name: Setup Storm UI upstart script
-  copy: dest={{stormui_upstart_conf}} owner=root group=root mode=644 src=storm-ui.conf
-  notify:
-    - Restart UI
-  when: ansible_distribution_release == 'trusty'
 
 - name: Setup UI systemd script
   copy: dest={{stormui_systemd_service}} owner=root group=root mode=644 src=storm-ui.service
   notify:
     - Restart UI
-  when: ansible_distribution_release != 'trusty'
 
 - meta: flush_handlers
 

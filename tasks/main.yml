@@ -1,6 +1,6 @@
 ---
 - name: Install OpenJDK
-  apt: name=openjdk-7-jre-headless state=present
+  yum: name=java-1.7.0-openjdk-headless.x86_64 state=present
 
 - name: Setup group
   group: name={{storm_group}} system=yes
@@ -22,7 +22,6 @@
 
 - name: Copy framework for download to slaves
   file: dest={{storm_root_dir}}/current/conf/storm-mesos-{{storm_version}}.tgz owner=storm group=storm mode=644 src=/root/storm-mesos-{{storm_version}}.tgz
-
 
 - name: Create Storm log and local directories
   file: path={{item}} state=directory owner={{storm_user}} group={{storm_group}} mode=775
